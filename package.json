@@ -1,0 +1,25 @@
+{
+  "name": "couplesee",
+  "version": "1.0.0",
+  "description": "Privately share photos between a couple",
+  "main": "index.js",
+  "scripts": {
+    "start": "DEVELOPMENT_MODE=TRUE nodemon --verbose-exec \"babel-node ./src/infrastructure/api/app.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zeeshaan",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.258.1",
+    "aws-serverless-express": "^3.2.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "nodemon": "^1.17.5"
+  }
+}
