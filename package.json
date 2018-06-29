@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "DEVELOPMENT_MODE=TRUE nodemon --verbose-exec \"babel-node ./src/infrastructure/api/app.js\"",
+    "build": "./node_modules/.bin/babel src -d dist/src",
+    "postbuild": "aws cloudformation package --s3-bucket temporary-bucket-1239 --s3-prefix aws-serverless-example --template-file ./infrastructure.yml --output-template-file ./infrastructure-packaged.yml",
+    "deploy": "npm run build && aws cloudformation update-stack --stack-name aws-serverless-example --template-body file:///$PWD/infrastructure-packaged.yml --capabilities CAPABILITY_IAM --region us-west-2",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Zeeshaan",
